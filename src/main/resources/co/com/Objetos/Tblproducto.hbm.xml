@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/05/2018 11:09:36 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="co.com.Objetos.Tblproducto" table="tblproducto" catalog="sirensamotordb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblparametrodetalle" class="co.com.Objetos.Tblparametrodetalle" fetch="select">
+            <column name="presentacion" />
+        </many-to-one>
+        <many-to-one name="tblusuario" class="co.com.Objetos.Tblusuario" fetch="select">
+            <column name="idUsuario" />
+        </many-to-one>
+        <property name="referencia" type="string">
+            <column name="referencia" length="20" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="200" not-null="true" />
+        </property>
+        <property name="precio" type="big_decimal">
+            <column name="precio" precision="20" not-null="true" />
+        </property>
+        <property name="fechaCreacion" type="timestamp">
+            <column name="fechaCreacion" length="19" />
+        </property>
+        <property name="fechaModificacion" type="timestamp">
+            <column name="fechaModificacion" length="19" />
+        </property>
+        <set name="tbldetallepedidos" table="tbldetallepedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idProducto" not-null="true" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tbldetallepedido" />
+        </set>
+        <set name="tblinventarios" table="tblinventario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idProducto" not-null="true" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tblinventario" />
+        </set>
+        <set name="tbldetallefacturas" table="tbldetallefactura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idProducto" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tbldetallefactura" />
+        </set>
+        <set name="tbldevolucions" table="tbldevolucion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idProducto" not-null="true" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tbldevolucion" />
+        </set>
+    </class>
+</hibernate-mapping>

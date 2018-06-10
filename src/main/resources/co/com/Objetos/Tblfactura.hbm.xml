@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/05/2018 11:09:36 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="co.com.Objetos.Tblfactura" table="tblfactura" catalog="sirensamotordb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblcliente" class="co.com.Objetos.Tblcliente" fetch="select">
+            <column name="idCliente" />
+        </many-to-one>
+        <many-to-one name="tblparametrodetalle" class="co.com.Objetos.Tblparametrodetalle" fetch="select">
+            <column name="tipoFactura" />
+        </many-to-one>
+        <many-to-one name="tblproveedor" class="co.com.Objetos.Tblproveedor" fetch="select">
+            <column name="idProveedor" />
+        </many-to-one>
+        <many-to-one name="tblusuario" class="co.com.Objetos.Tblusuario" fetch="select">
+            <column name="idUsuario" />
+        </many-to-one>
+        <property name="vendedor" type="string">
+            <column name="vendedor" length="100" not-null="true" />
+        </property>
+        <property name="documento" type="string">
+            <column name="documento" length="100" not-null="true" />
+        </property>
+        <property name="numeroFactura" type="string">
+            <column name="numeroFactura" length="30" />
+        </property>
+        <property name="fechaFactura" type="date">
+            <column name="fechaFactura" length="10" />
+        </property>
+        <property name="subtotal" type="big_decimal">
+            <column name="subtotal" precision="20" />
+        </property>
+        <property name="iva" type="big_decimal">
+            <column name="iva" precision="20" />
+        </property>
+        <property name="descuento" type="big_decimal">
+            <column name="descuento" precision="20" />
+        </property>
+        <property name="total" type="big_decimal">
+            <column name="total" precision="20" />
+        </property>
+        <property name="fechaCreacion" type="timestamp">
+            <column name="fechaCreacion" length="19" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="20" />
+        </property>
+        <set name="tbldetallefacturas" table="tbldetallefactura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idFactura" not-null="true" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tbldetallefactura" />
+        </set>
+        <set name="tbldevolucions" table="tbldevolucion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idFactura" not-null="true" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tbldevolucion" />
+        </set>
+    </class>
+</hibernate-mapping>

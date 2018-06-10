@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/05/2018 11:09:36 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="co.com.Objetos.Tbldetallefactura" table="tbldetallefactura" catalog="sirensamotordb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblfactura" class="co.com.Objetos.Tblfactura" fetch="select">
+            <column name="idFactura" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tblparametrodetalle" class="co.com.Objetos.Tblparametrodetalle" fetch="select">
+            <column name="idPresentacion" />
+        </many-to-one>
+        <many-to-one name="tblproducto" class="co.com.Objetos.Tblproducto" fetch="select">
+            <column name="idProducto" />
+        </many-to-one>
+        <property name="valorUnitario" type="big_decimal">
+            <column name="valorUnitario" precision="20" />
+        </property>
+        <property name="ivaUnitario" type="big_decimal">
+            <column name="ivaUnitario" precision="20" />
+        </property>
+        <property name="cantidad" type="java.lang.Integer">
+            <column name="cantidad" />
+        </property>
+        <property name="descuento" type="big_decimal">
+            <column name="descuento" precision="20" />
+        </property>
+        <property name="total" type="big_decimal">
+            <column name="total" precision="20" />
+        </property>
+    </class>
+</hibernate-mapping>

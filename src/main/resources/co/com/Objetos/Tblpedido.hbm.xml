@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/05/2018 11:09:36 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="co.com.Objetos.Tblpedido" table="tblpedido" catalog="sirensamotordb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblcliente" class="co.com.Objetos.Tblcliente" fetch="select">
+            <column name="idCliente" />
+        </many-to-one>
+        <many-to-one name="tblparametrodetalle" class="co.com.Objetos.Tblparametrodetalle" fetch="select">
+            <column name="tipoPedido" />
+        </many-to-one>
+        <many-to-one name="tblproveedor" class="co.com.Objetos.Tblproveedor" fetch="select">
+            <column name="idProveedor" />
+        </many-to-one>
+        <many-to-one name="tblusuario" class="co.com.Objetos.Tblusuario" fetch="select">
+            <column name="idUsuario" />
+        </many-to-one>
+        <property name="fechaPedido" type="timestamp">
+            <column name="fechaPedido" length="19" />
+        </property>
+        <property name="numeroPedido" type="string">
+            <column name="numeroPedido" length="50" />
+        </property>
+        <set name="tbldetallepedidos" table="tbldetallepedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idPedido" not-null="true" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tbldetallepedido" />
+        </set>
+    </class>
+</hibernate-mapping>

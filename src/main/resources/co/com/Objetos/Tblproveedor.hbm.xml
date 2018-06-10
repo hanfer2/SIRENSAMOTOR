@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/05/2018 11:09:36 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="co.com.Objetos.Tblproveedor" table="tblproveedor" catalog="sirensamotordb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblparametrodetalle" class="co.com.Objetos.Tblparametrodetalle" fetch="select">
+            <column name="tipoPersona" />
+        </many-to-one>
+        <many-to-one name="tblusuario" class="co.com.Objetos.Tblusuario" fetch="select">
+            <column name="idUsuario" />
+        </many-to-one>
+        <property name="nit" type="string">
+            <column name="nit" length="50" not-null="true" />
+        </property>
+        <property name="razonSocial" type="string">
+            <column name="razonSocial" length="20" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="50" />
+        </property>
+        <property name="celular" type="string">
+            <column name="celular" length="20" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="100" />
+        </property>
+        <property name="ciudad" type="string">
+            <column name="ciudad" length="20" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="100" />
+        </property>
+        <property name="fechaCreacion" type="timestamp">
+            <column name="fechaCreacion" length="19" />
+        </property>
+        <property name="fechaModificacion" type="timestamp">
+            <column name="fechaModificacion" length="19" />
+        </property>
+        <set name="tblfacturas" table="tblfactura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idProveedor" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tblfactura" />
+        </set>
+        <set name="tblpedidos" table="tblpedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idProveedor" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tblpedido" />
+        </set>
+    </class>
+</hibernate-mapping>

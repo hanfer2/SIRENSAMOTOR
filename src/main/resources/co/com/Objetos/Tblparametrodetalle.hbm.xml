@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/05/2018 11:09:36 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="co.com.Objetos.Tblparametrodetalle" table="tblparametrodetalle" catalog="sirensamotordb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblparametro" class="co.com.Objetos.Tblparametro" fetch="select">
+            <column name="id_parametro" not-null="true" />
+        </many-to-one>
+        <property name="descripcionDetalle" type="string">
+            <column name="descripcion_detalle" length="100" />
+        </property>
+        <property name="valor" type="string">
+            <column name="valor" length="10" />
+        </property>
+        <set name="tblproveedors" table="tblproveedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tipoPersona" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tblproveedor" />
+        </set>
+        <set name="tblproductos" table="tblproducto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="presentacion" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tblproducto" />
+        </set>
+        <set name="tblclientes" table="tblcliente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tipoIdentificacion" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tblcliente" />
+        </set>
+        <set name="tblpedidos" table="tblpedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tipoPedido" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tblpedido" />
+        </set>
+        <set name="tbldetallefacturas" table="tbldetallefactura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idPresentacion" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tbldetallefactura" />
+        </set>
+        <set name="tblusuarios" table="tblusuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tipoIdentificacion" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tblusuario" />
+        </set>
+        <set name="tblfacturas" table="tblfactura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tipoFactura" />
+            </key>
+            <one-to-many class="co.com.Objetos.Tblfactura" />
+        </set>
+    </class>
+</hibernate-mapping>
