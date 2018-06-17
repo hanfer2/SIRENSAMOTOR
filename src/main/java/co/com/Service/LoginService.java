@@ -6,6 +6,7 @@
 package co.com.Service;
 
 import co.com.Objetos.Tbllogin;
+import java.util.List;
 
 /**
  *
@@ -14,7 +15,8 @@ import co.com.Objetos.Tbllogin;
 public interface LoginService {
     
     
-    void createUSer(Tbllogin login);
+  
     boolean  validarLogin(Tbllogin login);
     Tbllogin finUser(String user, String pass);
+    List<Tbllogin>  findAllByIdRol(int id);
 }

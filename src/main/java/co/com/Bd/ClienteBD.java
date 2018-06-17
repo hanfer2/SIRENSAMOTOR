@@ -21,7 +21,7 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author hangutco
  */
-public class UsuarioBD {
+public class ClienteBD {
     
     
    public boolean save(Tblusuario usuario, Tbllogin login)

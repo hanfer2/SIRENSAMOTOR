@@ -22,11 +22,21 @@ public class Constantes {
     
     public final static String DOCUMENTOS_IDENTIDAD ="DDI";
     
-    
-    
-    
+
     /*---------*/
     public final static String CAMPO_OBLIGATORIO = "Es un campo obligatorio";
     public final static String CAMPO_NUMERICO = "Es un campo de solo números"; 
     public final static String CAMPO_ALFANUMERICO = "Es un campo alfanumerico";
+    
+    public final static String REGISTRO_ELIMINAR = "Este registro esta Asociado a otro, por lo tanto no puede ser eliminado \n Borre la relación antes de intentarlo nuevamente";
+    
+  /*Mensajes ventanas*/
+    public final static String ELIMINAR_ITEM = "¿Esta seguro que desea eliminar este registro?";
+    public final static String ALERTA = "Alerta...";
+    
+    
+    /*Disable*/
+    
+    public final static String ACTIVO = "Activo";
+    public final static String INACTIVO = "Inactivo";
 }

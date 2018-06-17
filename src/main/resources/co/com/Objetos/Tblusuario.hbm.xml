@@ -20,7 +20,7 @@
         <property name="apellidos" type="string">
             <column name="apellidos" length="100" />
         </property>
-        <property name="identificacion" type="java.lang.Integer">
+        <property name="identificacion" type="java.lang.String">
             <column name="Identificacion" />
         </property>
       

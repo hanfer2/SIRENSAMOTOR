@@ -16,7 +16,11 @@ import java.util.Set;
 public interface RolService {
     
     
-    
-  List<Tblrol> findByHead();
+  List<Tblrol> findByHead();   
+  List<Tblrol> findByFilter(String filter);
+  List<Tblrol> findAll();
   Tblrol findById(int id); 
+  boolean save(Tblrol rol);
+  boolean update(Tblrol rol);
+  boolean delete(Tblrol rol);
 }

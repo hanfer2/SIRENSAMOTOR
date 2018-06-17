@@ -11,6 +11,9 @@
         <property name="nombreRol" type="string">
             <column name="nombreRol" length="100" not-null="true" />
         </property>
+        <property name="activo" type="java.lang.Integer">
+            <column name="activo" />
+        </property>
         <set name="tbllogins" table="tbllogin" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="idRol" not-null="true" />

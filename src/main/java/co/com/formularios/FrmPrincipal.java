@@ -36,6 +36,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMIUsuario = new javax.swing.JMenuItem();
+        jMenuRoles = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMICliente = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -99,6 +100,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMIUsuario);
+
+        jMenuRoles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/if_role_64585.png"))); // NOI18N
+        jMenuRoles.setInheritsPopupMenu(true);
+        jMenuRoles.setLabel("Roles");
+        jMenuRoles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuRolesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuRoles);
 
         jMenuBar1.add(jMenu1);
 
@@ -187,6 +198,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         usuario.show();
     }//GEN-LAST:event_jMIUsuarioActionPerformed
 
+    private void jMenuRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRolesActionPerformed
+       FrmRol rol = new FrmRol();
+        dpnDestopk.add(rol);
+        rol.show();
+    }//GEN-LAST:event_jMenuRolesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -247,5 +264,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuRoles;
     // End of variables declaration//GEN-END:variables
 }

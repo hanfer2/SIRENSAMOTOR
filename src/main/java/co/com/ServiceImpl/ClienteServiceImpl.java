@@ -18,7 +18,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-public class UsuarioServiceImpl implements UsuarioService {
+public class ClienteServiceImpl implements UsuarioService {
 
 
     @Override

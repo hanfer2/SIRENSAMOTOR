@@ -13,6 +13,7 @@ public class Tblrol  implements java.io.Serializable {
 
      private Integer id;
      private String nombreRol;
+     private Integer activo;
      private Set tbllogins = new HashSet(0);
      private Set tblpermisoses = new HashSet(0);
 
@@ -23,10 +24,20 @@ public class Tblrol  implements java.io.Serializable {
     public Tblrol(String nombreRol) {
         this.nombreRol = nombreRol;
     }
-    public Tblrol(String nombreRol, Set tbllogins, Set tblpermisoses) {
+    public Tblrol(Integer id, String nombreRol,Integer activo ,Set tbllogins, Set tblpermisoses) {
+       this.id = id;
        this.nombreRol = nombreRol;
+       this.activo = activo;
        this.tbllogins = tbllogins;
        this.tblpermisoses = tblpermisoses;
+    }
+
+    public Integer getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Integer activo) {
+        this.activo = activo;
     }
    
     public Integer getId() {

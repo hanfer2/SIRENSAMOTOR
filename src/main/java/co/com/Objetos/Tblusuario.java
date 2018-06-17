@@ -16,13 +16,13 @@ public class Tblusuario  implements java.io.Serializable {
      private Tblparametrodetalle tblparametrodetalle;
      private String nombres;
      private String apellidos;
-     private Integer identificacion;
+     private String identificacion;
   
 
     public Tblusuario() {
     }
 
-    public Tblusuario(Tbllogin tbllogin, Tblparametrodetalle tblparametrodetalle, String nombres, String apellidos, Integer identificacion) {
+    public Tblusuario(Tbllogin tbllogin, Tblparametrodetalle tblparametrodetalle, String nombres, String apellidos, String identificacion) {
        this.tbllogin = tbllogin;
        this.tblparametrodetalle = tblparametrodetalle;
        this.nombres = nombres;
@@ -66,11 +66,11 @@ public class Tblusuario  implements java.io.Serializable {
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
-    public Integer getIdentificacion() {
+    public String getIdentificacion() {
         return this.identificacion;
     }
     
-    public void setIdentificacion(Integer identificacion) {
+    public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
 

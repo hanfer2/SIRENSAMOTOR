@@ -38,7 +38,7 @@ import javax.swing.table.TableModel;
  *
  * @author hangutco
  */
-public class FrmUsuario extends javax.swing.JInternalFrame {
+public class FrmCliente extends javax.swing.JInternalFrame {
 
     private String accion = "";
     ParametrosService parametrosService = null;
@@ -47,7 +47,7 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
     Tblusuario usuario = null;
     DefaultTableModel tabla = null;
 
-    public FrmUsuario() {
+    public FrmCliente() {
         initComponents();
         enabledOrDisabled(false);
         catalogos();

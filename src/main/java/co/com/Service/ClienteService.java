@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author hangutco
  */
-public interface UsuarioService {
+public interface ClienteService {
     
     
    boolean save(Tblusuario usuario, Tbllogin login);
