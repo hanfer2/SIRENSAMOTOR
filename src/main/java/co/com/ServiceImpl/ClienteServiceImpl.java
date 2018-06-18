@@ -6,9 +6,12 @@
 package co.com.ServiceImpl;
 
 import co.com.Bd.BDLogin;
+import co.com.Bd.ClienteBD;
 import co.com.Bd.UsuarioBD;
+import co.com.Objetos.Tblcliente;
 import co.com.Objetos.Tbllogin;
 import co.com.Objetos.Tblusuario;
+import co.com.Service.ClienteService;
 import co.com.Service.LoginService;
 import co.com.Service.UsuarioService;
 import co.com.config.NewHibernateUtil;
@@ -18,46 +21,53 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-public class ClienteServiceImpl implements UsuarioService {
+public class ClienteServiceImpl implements ClienteService {
 
 
     @Override
-    public boolean save(Tblusuario usuario, Tbllogin login) {
+    public boolean save(Tblcliente tblCliente) {
     
-        UsuarioBD usuarioBd = new UsuarioBD();
-        return usuarioBd.save(usuario, login);
+        ClienteBD usuarioBd = new ClienteBD();
+        return usuarioBd.save(tblCliente);
     }
     
     @Override
-    public boolean delete(Tblusuario usuario, Tbllogin login) {
+    public boolean delete(Tblcliente tblCliente) {
     
-        UsuarioBD usuarioBd = new UsuarioBD();
-        return usuarioBd.delete(usuario, login);
+        ClienteBD usuarioBd = new ClienteBD();
+        return usuarioBd.delete(tblCliente);
     }
     
     @Override
-    public boolean update(Tblusuario usuario, Tbllogin login) {
+    public boolean update(Tblcliente tblCliente) {
     
-        UsuarioBD usuarioBd = new UsuarioBD();
-        return usuarioBd.update(usuario, login);
+        ClienteBD usuarioBd = new ClienteBD();
+        return usuarioBd.update(tblCliente);
     }
     
     @Override
-    public List<Tblusuario> findAll() {
-        UsuarioBD bdGeneral = new UsuarioBD();
+    public List<Tblcliente> findAll() {
+        ClienteBD bdGeneral = new ClienteBD();
                
-        List<Tblusuario> objDetalle = new ArrayList(bdGeneral.findAll());
+        List<Tblcliente> objDetalle = new ArrayList(bdGeneral.findAll());
         
         return  objDetalle;
     }
     @Override
-    public List<Tblusuario> findByFilter(String filter) {
-        UsuarioBD bdGeneral = new UsuarioBD();
+    public List<Tblcliente> findByFilter(String filter) {
+        ClienteBD bdGeneral = new ClienteBD();
                
-        List<Tblusuario> objDetalle = new ArrayList(bdGeneral.findByFilter(filter));
+        List<Tblcliente> objDetalle = new ArrayList(bdGeneral.findByFilter(filter));
         
         return  objDetalle;
     }
 
- 
+  @Override
+    public Tblcliente findId(int id) {
+        ClienteBD bdGeneral = new ClienteBD();
+               
+       Tblcliente objDetalle =  bdGeneral.find(id);
+        
+        return  objDetalle;
+    }
 }

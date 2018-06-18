@@ -5,8 +5,9 @@
  */
 package co.com.Bd;
 
+
+import co.com.Objetos.Tblcliente;
 import co.com.Objetos.Tbllogin;
-import co.com.Objetos.Tblusuario;
 import co.com.config.NewHibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,183 +23,141 @@ import org.hibernate.criterion.Restrictions;
  * @author hangutco
  */
 public class ClienteBD {
-    
-    
-   public boolean save(Tblusuario usuario, Tbllogin login)
-    {
+
+    public boolean save(Tblcliente tblcliente) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
-           
-        BDLogin loginbd = new BDLogin();
-      try{
-        tx = session.beginTransaction();
-        
-        loginbd.save(login);
-        
-        usuario.setTbllogin(loginbd.findUserByUser(login.getUsuario()));
-        
-        session.save(usuario);
-        
-        tx.commit();
-       
-        return true;
-      }catch(HibernateException e)
-      {
-          if(tx != null)
-          {
-          tx.rollback();
-          }
-          return false;
-         // throw new RuntimeException(e);
-      }finally{
-          session.close();
+
+        try {
+            tx = session.beginTransaction();
+
+            session.save(tblcliente);
+
+            tx.commit();
+
+            return true;
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            return false;
+            // throw new RuntimeException(e);
+        } finally {
+            session.close();
         }
-      }
-    
-   public boolean update(Tblusuario usuario, Tbllogin login)
-    {
+    }
+
+    public boolean update(Tblcliente tblcliente) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
-           
-        BDLogin loginbd = new BDLogin();
-      try{
-       boolean res= loginbd.update(login);
-       if(res )
-       {
-        tx = session.beginTransaction();
-        usuario.setTbllogin(loginbd.findUserByUser(login.getUsuario()));
-        session.update(usuario);
-        tx.commit();
-        return true;
-       }else
-       {
-       return false;
-       }
-      }catch(HibernateException e)
-      {
-          if(tx != null)
-          {
-          tx.rollback();
-          }
-          return false;
-         // throw new RuntimeException(e);
-      }finally{
-          session.close();
+        try {
+
+            tx = session.beginTransaction();
+            session.update(tblcliente);
+            tx.commit();
+            return true;
+
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            return false;
+            // throw new RuntimeException(e);
+        } finally {
+            session.close();
         }
-      }
-   
-  public boolean delete(Tblusuario usuario, Tbllogin login)
-    {
+    }
+
+    public boolean delete(Tblcliente tblcliente) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
-           
-        BDLogin loginbd = new BDLogin();
-      try{
-       boolean res= loginbd.delete(login);
-       if(res )
-       {
-        tx = session.beginTransaction();
-        usuario.setTbllogin(loginbd.findUserByUser(login.getUsuario()));
-        session.delete(usuario);
-        tx.commit();
-        return true;
-       }else
-       {
-       return false;
-       }
-      }catch(HibernateException e)
-      {
-          if(tx != null)
-          {
-          tx.rollback();
-          }
-          return false;
-         // throw new RuntimeException(e);
-      }finally{
-          session.close();
+
+        try {
+
+            tx = session.beginTransaction();
+            session.delete(tblcliente);
+            tx.commit();
+            return true;
+
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            return false;
+            // throw new RuntimeException(e);
+        } finally {
+            session.close();
         }
-      }
-   
-     public List<Tbllogin>  findByFilter(String filter){
-     
-      List<Tbllogin> tblLogin ;
+    }
+
+    public List<Tblcliente> findByFilter(String filter) {
+
+        List<Tblcliente> tblcliente;
         SessionFactory sessionFactory = NewHibernateUtil.getSessionFactory();
         Session session = null;
-      try{
-     
-        session = sessionFactory.openSession();
-        Transaction tx = session.beginTransaction();
-                 
-        tblLogin = new ArrayList<>(session.createCriteria(Tblusuario.class).add(Restrictions.or(
-                Restrictions.like("nombres", "%"+filter+"%"),
-                Restrictions.like("apellidos", "%"+filter+"%"),
-                Restrictions.like("identificacion", "%"+filter+"%")
-        )).list() );
-        
-        tx.commit();
-        session.close();
-        
-        return tblLogin;
-        }catch(HibernateException e)
-          {
-          e.printStackTrace();
-          session.getTransaction().rollback();
-          return null;
-          }
-    } 
-   
-   
-    public List<Tbllogin>  findAll(){
-     
-      List<Tbllogin> tblLogin ;
+        try {
+
+            session = sessionFactory.openSession();
+            Transaction tx = session.beginTransaction();
+
+            tblcliente = new ArrayList<>(session.createCriteria(Tblcliente.class).add(Restrictions.or(
+                    Restrictions.like("identificacion", "%" + filter + "%"),
+                    Restrictions.like("nombreCliente", "%" + filter + "%"),
+                    Restrictions.like("telefono", "%" + filter + "%"),
+                    Restrictions.like("celular", "%" + filter + "%"),
+                    Restrictions.like("email", "%" + filter + "%")
+            )).list());
+
+            tx.commit();
+            session.close();
+
+            return tblcliente;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
+            return null;
+        }
+    }
+
+    public List<Tblcliente> findAll() {
+
+        List<Tblcliente> tblcliente;
         SessionFactory sessionFactory = NewHibernateUtil.getSessionFactory();
         Session session = null;
-      try{
-     
-        session = sessionFactory.openSession();
-        Transaction tx = session.beginTransaction();
-        
-        tblLogin =new ArrayList<Tbllogin>( session.createCriteria(Tblusuario.class).list());
-        
-        tx.commit();
-        session.close();
-        
-        return tblLogin;
-        }catch(HibernateException e)
-          {
-          e.printStackTrace();
-          session.getTransaction().rollback();
-          return null;
-          }
-    } 
-    
-    
-  public Tbllogin  findUserPass(String usuario, String pass){
-     
-      Tbllogin tblLogin ;
+        try {
+
+            session = sessionFactory.openSession();
+            Transaction tx = session.beginTransaction();
+
+            tblcliente = new ArrayList<Tblcliente>(session.createCriteria(Tblcliente.class).list());
+
+            tx.commit();
+            session.close();
+
+            return tblcliente;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
+            return null;
+        }
+    }
+
+    public Tblcliente find(int id) {
         SessionFactory sessionFactory = NewHibernateUtil.getSessionFactory();
-        Session session = null;
-      try{
-     
+        Session session;
         session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        
-        Criteria criteria = session.createCriteria(Tbllogin.class);
-        criteria.add(Restrictions.eq("usuario", usuario));
-        criteria.add(Restrictions.eq("passwords", pass));
-       
-        tblLogin = (Tbllogin) criteria.uniqueResult();
-        
+
+        Criteria criteria = session.createCriteria(Tblcliente.class);
+        criteria.add(Restrictions.eq("id", id));
+
+      
+        Tblcliente tblcliente = (Tblcliente) criteria.uniqueResult();
+
         tx.commit();
         session.close();
-        
-        return tblLogin;
-        }catch(HibernateException e)
-          {
-          e.printStackTrace();
-          session.getTransaction().rollback();
-          return null;
-          }
+
+        return tblcliente;
     }
     
 }

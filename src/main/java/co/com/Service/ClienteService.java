@@ -5,6 +5,7 @@
  */
 package co.com.Service;
 
+import co.com.Objetos.Tblcliente;
 import co.com.Objetos.Tbllogin;
 import co.com.Objetos.Tblusuario;
 import java.util.List;
@@ -16,11 +17,11 @@ import java.util.List;
 public interface ClienteService {
     
     
-   boolean save(Tblusuario usuario, Tbllogin login);
-   boolean delete(Tblusuario usuario, Tbllogin login);
-   boolean update(Tblusuario usuario, Tbllogin login);
-   List<Tblusuario> findAll();
-   List<Tblusuario> findByFilter(String filter);
-   
+   boolean save(Tblcliente usuario);
+   boolean delete(Tblcliente usuario);
+   boolean update(Tblcliente usuario);
+   List<Tblcliente> findAll();
+   List<Tblcliente> findByFilter(String filter);
+   Tblcliente findId(int id);
     
 }

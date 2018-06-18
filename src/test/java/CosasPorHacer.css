@@ -1,0 +1,16 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17/06/2018, 01:48:53 PM
+    Author     : hgutierrez
+
+
+1.validar email en todos los formularios
+2.Validar al borrar un cliente, si tiene facturas, pedidos creados no lo pueda borrar
+3.Enviar el usuario logueado a la pantalla inicial, para ponerlo en las transacciones
+
+*/
+

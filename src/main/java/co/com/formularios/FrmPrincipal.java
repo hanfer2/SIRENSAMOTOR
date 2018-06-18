@@ -118,6 +118,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMICliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/if_people_2639885.png"))); // NOI18N
         jMICliente.setText("Administrar Cliente");
+        jMICliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIClienteActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMICliente);
 
         jMenuBar1.add(jMenu2);
@@ -203,6 +208,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         dpnDestopk.add(rol);
         rol.show();
     }//GEN-LAST:event_jMenuRolesActionPerformed
+
+    private void jMIClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIClienteActionPerformed
+         FrmCliente cliente = new FrmCliente();
+        dpnDestopk.add(cliente);
+        cliente.show();
+    }//GEN-LAST:event_jMIClienteActionPerformed
 
     /**
      * @param args the command line arguments
