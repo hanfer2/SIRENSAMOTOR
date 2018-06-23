@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 10/05/2018 11:09:36 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 18/06/2018 05:29:24 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="co.com.Objetos.Tblusuario" table="tblusuario" catalog="sirensamotordb" optimistic-lock="version" lazy="true">
+    <class name="co.com.Objetos.Tblusuario" table="tblusuario" catalog="sirensamotordb">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity" />
+            <generator class="identity"></generator>
         </id>
-        <many-to-one name="tbllogin" class="co.com.Objetos.Tbllogin" fetch="select" lazy="no-proxy">
+        <many-to-one name="tbllogin" class="co.com.Objetos.Tbllogin" fetch="select">
             <column name="idLogin" />
         </many-to-one>
-        <many-to-one name="tblparametrodetalle" class="co.com.Objetos.Tblparametrodetalle" fetch="select" lazy="no-proxy">
+        <many-to-one name="tblparametrodetalle" class="co.com.Objetos.Tblparametrodetalle" fetch="select">
             <column name="tipoIdentificacion" />
         </many-to-one>
         <property name="nombres" type="string">
@@ -23,6 +23,5 @@
         <property name="identificacion" type="java.lang.String">
             <column name="Identificacion" />
         </property>
-      
     </class>
 </hibernate-mapping>

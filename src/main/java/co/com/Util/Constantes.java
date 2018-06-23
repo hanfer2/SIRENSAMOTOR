@@ -21,6 +21,8 @@ public class Constantes {
     
     
     public final static String DOCUMENTOS_IDENTIDAD ="DDI";
+    public final static String MARCAS ="MARCAS";
+    public final static String PRESENTACION ="PRESENTACION";
     
 
     /*---------*/

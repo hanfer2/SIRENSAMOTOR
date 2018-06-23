@@ -1,5 +1,5 @@
 package co.com.Objetos;
-// Generated 10/05/2018 11:09:35 AM by Hibernate Tools 4.3.1
+// Generated 18/06/2018 05:29:22 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -24,20 +24,11 @@ public class Tblrol  implements java.io.Serializable {
     public Tblrol(String nombreRol) {
         this.nombreRol = nombreRol;
     }
-    public Tblrol(Integer id, String nombreRol,Integer activo ,Set tbllogins, Set tblpermisoses) {
-       this.id = id;
+    public Tblrol(String nombreRol, Integer activo, Set tbllogins, Set tblpermisoses) {
        this.nombreRol = nombreRol;
        this.activo = activo;
        this.tbllogins = tbllogins;
        this.tblpermisoses = tblpermisoses;
-    }
-
-    public Integer getActivo() {
-        return activo;
-    }
-
-    public void setActivo(Integer activo) {
-        this.activo = activo;
     }
    
     public Integer getId() {
@@ -53,6 +44,13 @@ public class Tblrol  implements java.io.Serializable {
     
     public void setNombreRol(String nombreRol) {
         this.nombreRol = nombreRol;
+    }
+    public Integer getActivo() {
+        return this.activo;
+    }
+    
+    public void setActivo(Integer activo) {
+        this.activo = activo;
     }
     public Set getTbllogins() {
         return this.tbllogins;

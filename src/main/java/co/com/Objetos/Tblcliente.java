@@ -1,5 +1,5 @@
 package co.com.Objetos;
-// Generated 10/05/2018 11:09:35 AM by Hibernate Tools 4.3.1
+// Generated 18/06/2018 05:29:22 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

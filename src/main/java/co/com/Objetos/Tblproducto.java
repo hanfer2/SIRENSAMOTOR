@@ -1,5 +1,5 @@
 package co.com.Objetos;
-// Generated 10/05/2018 11:09:35 AM by Hibernate Tools 4.3.1
+// Generated 18/06/2018 05:29:22 PM by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -14,7 +14,8 @@ public class Tblproducto  implements java.io.Serializable {
 
 
      private Integer id;
-     private Tblparametrodetalle tblparametrodetalle;
+     private Tblparametrodetalle tblparametrodetalleByPresentacion;
+     private Tblparametrodetalle tblparametrodetalleByMarca;
      private Tblusuario tblusuario;
      private String referencia;
      private String descripcion;
@@ -35,8 +36,9 @@ public class Tblproducto  implements java.io.Serializable {
         this.descripcion = descripcion;
         this.precio = precio;
     }
-    public Tblproducto(Tblparametrodetalle tblparametrodetalle, Tblusuario tblusuario, String referencia, String descripcion, BigDecimal precio, Date fechaCreacion, Date fechaModificacion, Set tbldetallepedidos, Set tblinventarios, Set tbldetallefacturas, Set tbldevolucions) {
-       this.tblparametrodetalle = tblparametrodetalle;
+    public Tblproducto(Tblparametrodetalle tblparametrodetalle, Tblparametrodetalle tblparametrodetalleByMarca, Tblusuario tblusuario, String referencia, String descripcion, BigDecimal precio, Date fechaCreacion, Date fechaModificacion, Set tbldetallepedidos, Set tblinventarios, Set tbldetallefacturas, Set tbldevolucions) {
+       this.tblparametrodetalleByPresentacion = tblparametrodetalleByPresentacion;
+       this.tblparametrodetalleByMarca = tblparametrodetalle;
        this.tblusuario = tblusuario;
        this.referencia = referencia;
        this.descripcion = descripcion;
@@ -56,13 +58,23 @@ public class Tblproducto  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Tblparametrodetalle getTblparametrodetalle() {
-        return this.tblparametrodetalle;
+
+    public Tblparametrodetalle getTblparametrodetalleByPresentacion() {
+        return tblparametrodetalleByPresentacion;
     }
-    
-    public void setTblparametrodetalle(Tblparametrodetalle tblparametrodetalle) {
-        this.tblparametrodetalle = tblparametrodetalle;
+
+    public void setTblparametrodetalleByPresentacion(Tblparametrodetalle tblparametrodetalleByPresentacion) {
+        this.tblparametrodetalleByPresentacion = tblparametrodetalleByPresentacion;
     }
+
+    public Tblparametrodetalle getTblparametrodetalleByMarca() {
+        return tblparametrodetalleByMarca;
+    }
+
+    public void setTblparametrodetalleByMarca(Tblparametrodetalle tblparametrodetalleByMarca) {
+        this.tblparametrodetalleByMarca = tblparametrodetalleByMarca;
+    }
+   
     public Tblusuario getTblusuario() {
         return this.tblusuario;
     }

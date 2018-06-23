@@ -136,6 +136,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/if_motorcycle_1055021.png"))); // NOI18N
         jMenuItem10.setText("Administracion Producto");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem10);
 
         jMenuBar1.add(jMenu3);
@@ -214,6 +219,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         dpnDestopk.add(cliente);
         cliente.show();
     }//GEN-LAST:event_jMIClienteActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+       FrmProducto producto = new FrmProducto();
+        dpnDestopk.add(producto);
+        producto.show();
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments

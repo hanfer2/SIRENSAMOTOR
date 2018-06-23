@@ -21,10 +21,31 @@ public class UtilValidaciones {
              return false;
         }
    }
+   public static boolean isValueMoney(String numero)
+   {
+        try{
+                Double.parseDouble(numero);
+            return true;
+        }catch(Exception e)
+        {
+        return false;
+        }
+   }
+   
    
     public static boolean containValuesNoAlfanumeric(String numero)
    {
         if (numero.matches("^[\\w]+$"))
+        {    
+            return true;
+        } else{
+             return false;
+        }
+   }
+    
+     public static boolean containValuesNoAlfanumeric_withSpace(String numero)
+   {
+        if (numero.matches("^[\\w\\s]+$"))
         {    
             return true;
         } else{
